@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amazing Animated Website</title>
+
+<style>
+
+/* ===== GLOBAL RESET ===== */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+}
+
+body{
+  overflow-x:hidden;
+  color:white;
+}
+
+/* ===== ANIMATED GRADIENT BACKGROUND ===== */
+body{
+  background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #1f1c2c);
+  background-size: 400% 400%;
+  animation: gradient 12s ease infinite;
+}
+
+@keyframes gradient{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* ===== NAVBAR ===== */
+nav{
+  position:fixed;
+  width:100%;
+  padding:20px;
+  display:flex;
+  justify-content:space-between;
+  background:rgba(0,0,0,0.3);
+  backdrop-filter:blur(10px);
+  z-index:1000;
+}
+
+nav h1{
+  font-size:22px;
+}
+
+nav ul{
+  display:flex;
+  list-style:none;
+}
+
+nav ul li{
+  margin-left:20px;
+}
+
+nav ul li a{
+  color:white;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+nav ul li a:hover{
+  color:#00f2ff;
+}
+
+/* ===== HERO SECTION ===== */
+.hero{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  flex-direction:column;
+}
+
+.hero h2{
+  font-size:50px;
+  margin-bottom:20px;
+  animation: fadeIn 2s ease forwards;
+}
+
+.hero p{
+  font-size:20px;
+  opacity:0.8;
+}
+
+/* ===== BUTTON ===== */
+.btn{
+  margin-top:30px;
+  padding:12px 30px;
+  border:none;
+  border-radius:30px;
+  background:#00f2ff;
+  color:black;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.btn:hover{
+  transform:scale(1.1);
+  box-shadow:0 0 20px #00f2ff;
+}
+
+/* ===== GLASS SECTION ===== */
+.section{
+  padding:100px 20px;
+  text-align:center;
+}
+
+.card{
+  max-width:300px;
+  margin:20px auto;
+  padding:30px;
+  border-radius:20px;
+  background:rgba(255,255,255,0.1);
+  backdrop-filter:blur(10px);
+  transition:0.4s;
+}
+
+.card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* ===== SCROLL ANIMATION ===== */
+.reveal{
+  opacity:0;
+  transform:translateY(100px);
+  transition:all 1s ease;
+}
+
+.reveal.active{
+  opacity:1;
+  transform:translateY(0px);
+}
+
+/* ===== FOOTER ===== */
+footer{
+  text-align:center;
+  padding:30px;
+  background:rgba(0,0,0,0.4);
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+  <h1>MyWebsite</h1>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+  </ul>
+</nav>
+
+<section class="hero" id="home">
+  <h2>Welcome to My Animated Website</h2>
+  <p>Beautiful Background ✨ Smooth Animation 🚀</p>
+  <button class="btn">Explore</button>
+</section>
+
+<section class="section reveal" id="about">
+  <h2>About Us</h2>
+  <div class="card">
+    <p>This website is fully animated with modern UI design using only HTML, CSS & JavaScript.</p>
+  </div>
+</section>
+
+<section class="section reveal" id="services">
+  <h2>Our Services</h2>
+  <div class="card">
+    <p>Web Design, Development, UI/UX & Creative Animations.</p>
+  </div>
+</section>
+
+<footer>
+  © 2026 Amazing Website | Made with ❤️
+</footer>
+
+<script>
+
+/* ===== SCROLL REVEAL FUNCTION ===== */
+window.addEventListener('scroll', reveal);
+
+function reveal(){
+  var reveals = document.querySelectorAll('.reveal');
+  
+  for(var i = 0; i < reveals.length; i++){
+    var windowHeight = window.innerHeight;
+    var elementTop = reveals[i].getBoundingClientRect().top;
+    var elementVisible = 150;
+    
+    if(elementTop < windowHeight - elementVisible){
+      reveals[i].classList.add('active');
+    }
+  }
+}
+
+</script>
+
+</body>
+</html>
